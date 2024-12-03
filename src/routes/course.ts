@@ -2,12 +2,12 @@ import { Router } from 'express';
 
 const router = Router();
 
-// Rota para listar cursos
+// List courses
 router.get('/', (req, res) => {
 	res.send('List of Courses');
 });
 
-// Rota para criar um curso
+// Create course
 router.post('/', (req, res) => {
 	res.send('Course Created');
 });
