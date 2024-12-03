@@ -6,6 +6,17 @@ const uri = env.DATABASE_STR_CONN;
 
 export const client = new MongoClient(uri);
 
+export const db = client.db('avalie-db');
+
+export const dbCollections = {
+	course: db.collection('course'),
+	director: db.collection('director'),
+	disciplines: db.collection('disciplines'),
+	feedback: db.collection('feedback'),
+	professor: db.collection('professor'),
+	student: db.collection('student'),
+};
+
 export async function connectDB() {
 	try {
 		await client.connect(); // Connect to the cluster
