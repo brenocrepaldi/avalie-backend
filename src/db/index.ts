@@ -11,7 +11,7 @@ export const db = client.db('avalie-db');
 export const dbCollections = {
 	course: db.collection('course'),
 	director: db.collection('director'),
-	disciplines: db.collection('disciplines'),
+	discipline: db.collection('discipline'),
 	feedback: db.collection('feedback'),
 	professor: db.collection('professor'),
 	student: db.collection('student'),
