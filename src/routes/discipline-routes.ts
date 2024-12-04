@@ -8,7 +8,7 @@ const router = Router();
 // Get all disciplines
 router.get('/', async (req, res) => {
 	try {
-		const disciplines = await dbCollections.disciplines.find().toArray();
+		const disciplines = await dbCollections.discipline.find().toArray();
 		res.status(200).json(disciplines);
 	} catch (error) {
 		res
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 	const disciplineId = req.params['id'];
 	try {
-		const discipline = await dbCollections.disciplines.findOne({
+		const discipline = await dbCollections.discipline.findOne({
 			_id: new ObjectId(disciplineId),
 		});
 		if (!discipline) res.status(404).json({ error: 'discipline not found' });
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
 	try {
 		const disciplineData = disciplineSchema.parse(req.body);
-		const result = await dbCollections.disciplines.insertOne(disciplineData);
+		const result = await dbCollections.discipline.insertOne(disciplineData);
 
 		if (result.acknowledged) {
 			res.status(201).json({
@@ -61,7 +61,7 @@ router.put('/:id', async (req, res) => {
 		const disciplineId = req.params['id'];
 		const disciplineData = disciplineSchema.parse(req.body);
 
-		const result = await dbCollections.disciplines.updateOne(
+		const result = await dbCollections.discipline.updateOne(
 			{ _id: new ObjectId(disciplineId) },
 			{
 				$set: {
@@ -96,7 +96,7 @@ router.delete('/:id', async (req, res) => {
 	try {
 		const disciplineId = req.params['id'];
 
-		const result = await dbCollections.disciplines.deleteOne({
+		const result = await dbCollections.discipline.deleteOne({
 			_id: new ObjectId(disciplineId),
 		});
 

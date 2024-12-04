@@ -8,7 +8,7 @@ const router = Router();
 
 router.use('/course', courseRoutes);
 router.use('/director', directorRoutes);
-router.use('/disciplines', disciplineRoutes);
+router.use('/discipline', disciplineRoutes);
 router.use('/feedback', feedbackRoutes);
 
 export default router;
