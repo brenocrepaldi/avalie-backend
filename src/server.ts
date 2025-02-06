@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 import { connectDB } from './db';
 import { env } from './env';
@@ -11,6 +12,15 @@ import professorRoutes from './routes/professor-routes';
 import studentRoutes from './routes/student-routes';
 
 const app = express();
+
+// Enable CORS to allow cross-origin requests
+app.use(
+	cors({
+		origin: env.WEB_BASE_URL, // Allows requests only from frontend domain
+		methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+		allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers in requests
+	})
+);
 
 // Middleware to use routes
 app.use(express.json());
