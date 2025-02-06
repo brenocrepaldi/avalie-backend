@@ -37,7 +37,7 @@ app.use('/student', studentRoutes);
 connectDB()
 	.then(() => {
 		app.listen({ port: env.PORT }, () => {
-			console.log('Server running...');
+			console.log(`Server running on http://localhost:${env.PORT}`);
 		});
 	})
 	.catch((error) => {
